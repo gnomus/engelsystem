@@ -330,19 +330,19 @@ function User_view($user_source, $admin_user_privilege, $freeloader, $user_angel
                   ($admin_user_privilege && ! $user_source['Gekommen']) ? button(page_link_to('admin_arrive') . '&arrived=' . $user_source['UID'], _("arrived")) : '',
                   $admin_user_privilege ? button(page_link_to('users') . '&action=edit_vouchers&user_id=' . $user_source['UID'], glyph('cutlery') . _('Edit vouchers')) : '',
                   $its_me ? button(page_link_to('user_settings'), glyph('list-alt') . _("Settings")) : '',
-                  $its_me ? button(page_link_to('ical') . '&key=' . $user_source['api_key'], glyph('calendar') . _("iCal Export")) : '',
-                  $its_me ? button(page_link_to('shifts_json_export') . '&key=' . $user_source['api_key'], glyph('export') . _("JSON Export")) : '',
-                  $its_me ? button(page_link_to('user_myshifts') . '&reset', glyph('repeat') . _('Reset API key')) : '' 
+                  //$its_me ? button(page_link_to('ical') . '&key=' . $user_source['api_key'], glyph('calendar') . _("iCal Export")) : '',
+                  //$its_me ? button(page_link_to('shifts_json_export') . '&key=' . $user_source['api_key'], glyph('export') . _("JSON Export")) : '',
+                  //$its_me ? button(page_link_to('user_myshifts') . '&reset', glyph('repeat') . _('Reset API key')) : '' 
               ]) 
           ]) 
       ]),
       div('row', [
-          div('col-md-3', [
+          /*div('col-md-3', [
               '<h1>',
               '<span class="glyphicon glyphicon-phone"></span>',
               $user_source['DECT'],
               '</h1>' 
-          ]),
+      ]),*/
           div('col-md-3', [
               '<h4>' . _("User state") . '</h4>',
               ($admin_user_privilege && $freeloader) ? '<span class="text-danger"><span class="glyphicon glyphicon-exclamation-sign"></span> ' . _("Freeloader") . '</span><br />' : '',
@@ -370,7 +370,7 @@ function User_view($user_source, $admin_user_privilege, $freeloader, $user_angel
           'comment' => _("Comment"),
           'actions' => _("Action") 
       ], $myshifts_table) : '',
-      $its_me ? info(glyph('info-sign') . _("Your night shifts between 2 and 8 am count twice."), true) : '',
+      #$its_me ? info(glyph('info-sign') . _("Your night shifts between 2 and 8 am count twice."), true) : '',
       $its_me && count($shifts) == 0 ? error(sprintf(_("Go to the <a href=\"%s\">shifts table</a> to sign yourself up for some shifts."), page_link_to('user_shifts')), true) : '' 
   ]);
 }
