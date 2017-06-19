@@ -81,10 +81,10 @@ function guest_register() {
     
     if (isset($_REQUEST['jabber']) && strlen(strip_request_item('jabber')) > 0) {
       $jabber = strip_request_item('jabber');
-      if (! check_email($jabber)) {
-        $valid = false;
-        $msg .= error(_("Please check your jabber account information."), true);
-      }
+      #if (! check_email($jabber)) {
+      #  $valid = false;
+      #  $msg .= error(_("Please check your jabber account information."), true);
+      #}
     }
     
     if ($enable_tshirt_size) {
@@ -251,17 +251,17 @@ function guest_register() {
               ]),
               div('col-md-6', [
                   div('row', [
-                      div('col-sm-4', [
-                          form_text('dect', _("DECT"), $dect) 
-                      ]),
-                      div('col-sm-4', [
+                      #div('col-sm-4', [
+                      #    form_text('dect', _("DECT"), $dect) 
+                      #]),
+                      div('col-sm-6', [
                           form_text('mobile', _("Mobile"), $mobile) 
                       ]),
-                      div('col-sm-4', [
+                      div('col-sm-6', [
                           form_text('tel', _("Phone"), $tel) 
                       ]) 
                   ]),
-                  form_text('jabber', _("Jabber"), $jabber),
+                  form_text('jabber', "Organisation", $jabber),
                   div('row', [
                       div('col-sm-6', [
                           form_text('prename', _("First name"), $prename) 
