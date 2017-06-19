@@ -188,12 +188,12 @@ function User_validate_mail($mail) {
  * @return ValidationResult
  */
 function User_validate_jabber($jabber) {
-  $jabber = strip_item($jabber);
-  if ($jabber == '') {
+  //$jabber = strip_item($jabber);
+  //if ($jabber == '') {
     // Empty is ok
     return new ValidationResult(true, '');
-  }
-  return new ValidationResult(check_email($jabber), $jabber);
+  //}
+  //return new ValidationResult(check_email($jabber), $jabber);
 }
 
 /**
